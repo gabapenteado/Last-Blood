@@ -3,15 +3,25 @@ using System.Collections;
 
 public class Fortress : Character {
 	
+	public tk2dTextMesh text;
+	
 	void Awake()
 	{
-		health = 1;
+		text.renderer.enabled = false;
+		health = 10;
 		
 	}
 	
-	private void LooseGame()
+	public override void Kill()
+	{
+		LooseGame();
+	}
+	
+	public void LooseGame()
 	{
 		Debug.Log("Perdeu o jogo");
+		text.renderer.enabled = true;
+		Time.timeScale = 0;
 	}
 	
 	

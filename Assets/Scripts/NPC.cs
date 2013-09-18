@@ -10,7 +10,7 @@ public class NPC : Character {
 	
 	public ActionObject GetAction(AI pAI)
 	{
-		return pAI.MakeDecision();
+		return pAI.MakeDecision(target);
 	}
 	
 	public void PerformAIAction(ActionObject pActionObject)
@@ -20,8 +20,11 @@ public class NPC : Character {
 			Move(pActionObject.moveDirection, speed);
 		}
 		else{
-			Debug.Log("Atacou");
-			UseSkill(new BaseAttack());	
+			
+			if ((baseAttack.cooldown + baseAttack.lastTimeUsed)<Time.time)
+			{
+				UseSkill(baseAttack);
+			}
 		}
 	}
 	

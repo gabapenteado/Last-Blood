@@ -11,9 +11,9 @@ public class Character : MonoBehaviour {
 	//animation controller
 	public LayerMask hitEnabledLayers;
 	//Skills
-	
+	public BaseAttack baseAttack;
 	private Vector3 moveDirection;
-	
+	public Character target;
 	public enum STATE
 	{
 		Standing,
@@ -37,6 +37,7 @@ public class Character : MonoBehaviour {
 	
 	public void Move(Vector3 pMoveDirection, int pSpeed)
 	{
+		State = STATE.Running;
 		controller.Move(pMoveDirection * pSpeed * Time.deltaTime);
 		
 	}
@@ -52,13 +53,24 @@ public class Character : MonoBehaviour {
 		*/
 	}
 	
-	public void Kill()
+	public virtual void Kill()
 	{
+		/*
+		State = STATE.Dying;
 		Debug.Log("kill super");	
+	    */
 	}
 	
 	public void UseSkill(Skill pSkill)
 	{
-		
+		Debug.Log("Atacou");
+		State = STATE.Attacking;
+		pSkill.lastTimeUsed = Time.time;
+		target.health-=(int)pSkill.CalculateDamage(skillStrength);
+		if (target.health <=0)
+		{
+			target.Kill();
+			//fortress.LooseGame();
+		}
 	}
 }

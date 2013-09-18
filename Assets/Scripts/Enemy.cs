@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Enemy : NPC {
 	
-	public Character fortress;
+	
 	private int xpValue;
 	private EnemyType myType;
 	
@@ -11,7 +11,9 @@ public class Enemy : NPC {
 	{
 		speed = 5;
 		health = 10;
-		aiObject = new AI(this, fortress);	
+		skillStrength = 1;
+		aiObject = new AI(this, target);
+		baseAttack = new BaseAttack();
 	}
 	
 	void Update()
