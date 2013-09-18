@@ -46,21 +46,14 @@ public class ZombieSpawner : Spawner
 					if(i == index)
 					{
 						SpawnWave(index);   //spawn selected enemy
-						currentGoldValue -= 1 + index;   //decrease its value from my gold stash
+						ZombieBasic zombie = prefab.GetComponent<ZombieBasic>();
+						currentGoldValue -= zombie.spawnCost + index;   //decrease its value from my gold stash
 					}
 					index++;
 				}
 			}
 			currentSpawnTime = originalSpawnTime;   //resets timer
 			waveNumber++;
-		}
-		else if(biggerFirst)
-		{
-			
-		}
-		else if(smallerFirst)
-		{
-			
 		}
 	}
 	override protected void UpdateGold ()
