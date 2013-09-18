@@ -5,7 +5,7 @@ public enum EnemyType
 {
 	ZombieG,
 	ZombieR,
-	
+	ZombieB,
 	nZombieTypeCount
 }
 
