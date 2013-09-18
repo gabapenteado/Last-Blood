@@ -1,0 +1,10 @@
+Grain Reapers/Temp/*
+Grain Reapers/Library/*
+Grain Reapers/Build
+
+
+*.userprefs
+*.csproj
+*.pidb
+*.sln
+*.unityproj
