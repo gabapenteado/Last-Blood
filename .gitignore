@@ -1,6 +1,6 @@
-Grain Reapers/Temp/*
-Grain Reapers/Library/*
-Grain Reapers/Build
+Temp/*
+Library/*
+Build
 
 
 *.userprefs
