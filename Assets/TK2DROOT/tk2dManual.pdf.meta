@@ -1,4 +1,13 @@
 fileFormatVersion: 2
-guid: 59436358c8092c343ab8aefd4607647c
+guid: 32d44d3556a0ffb4691584928637ad5b
+labels:
+- 2d
+- sprite
+- text
+- font
+- atlas
+- spritecollection
+- manual
+- toolkit
 DefaultImporter:
   userData: 

@@ -1,5 +1,13 @@
 fileFormatVersion: 2
-guid: 3134aeb0c3d5f5b47ae0939bd963350d
+guid: 1040a89a933824342a77bb63787a424b
+labels:
+- 2d
+- sprite
+- text
+- font
+- atlas
+- spritecollection
+- toolkit
 MonoImporter:
   serializedVersion: 2
   defaultReferences: []

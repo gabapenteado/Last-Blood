@@ -6,8 +6,8 @@ using System.IO;
 [InitializeOnLoad]
 public static class tk2dEditorUtility
 {
-	public static double version = 2.10;
-	public static int releaseId = 1; // < -10000 = alpha, other negative = beta release, 0 = final, positive = final hotfix
+	public static double version = 2.20;
+	public static int releaseId = 0; // < -10000 = alpha, other negative = beta release, 0 = final, positive = final hotfix
 
 	static tk2dEditorUtility() {
 		System.Reflection.FieldInfo undoCallback = typeof(EditorApplication).GetField("undoRedoPerformed", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Static);
