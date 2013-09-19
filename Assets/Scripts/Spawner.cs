@@ -4,10 +4,7 @@ using System.Collections;
 public class Spawner : MonoBehaviour 
 {
 	public float currentSpawnTime;
-	public float originalSpawnTime;
-	public bool randomSpawner = false;
-	public bool biggerFirst = false;
-	public bool smallerFirst = false;
+	public float originalSpawnTime;	
 	
 	// Use this for initialization
 	void Awake ()
