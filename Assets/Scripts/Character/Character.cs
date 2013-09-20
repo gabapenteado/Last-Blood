@@ -14,15 +14,10 @@ public class Character : MonoBehaviour {
 	public BaseAttack baseAttack;
 	private Vector3 moveDirection;
 	public Character target;
-	public enum STATE
-	{
-		Standing,
-		Running,
-		Attacking,
-        Dying
-	}
 	
-	public STATE State { get; set; }
+	private float lastDirection;
+	
+	public STATE state { get; set; }
 	
 	void Awake()
 	{
@@ -30,16 +25,44 @@ public class Character : MonoBehaviour {
 			
 	}
 	
-	void Update()
+	public void Update()
 	{
-		
+		UpdateAnimation();
+	}
+	
+	virtual public void UpdateAnimation()
+	{
+		switch(state)
+		{
+			case STATE.Standing:
+				
+			break;
+			case STATE.Running:
+				
+			break;
+		}
 	}
 	
 	public void Move(Vector3 pMoveDirection, int pSpeed)
 	{
-		State = STATE.Running;
-		controller.Move(pMoveDirection * pSpeed * Time.deltaTime);
+		state = STATE.Running;
+		//controller.Move((pMoveDirection.normalized) * pSpeed * Time.deltaTime);
 		
+		transform.position += (pMoveDirection.normalized) * pSpeed * Time.deltaTime;
+		
+		ClampScenarioLimits();
+		
+		if(Mathf.Sign(lastDirection) != Mathf.Sign(pMoveDirection.x))
+		{
+			transform.localScale = new Vector3(transform.localScale.x*-1,transform.localScale.y,transform.localScale.z);
+		}
+		
+		lastDirection = pMoveDirection.x;
+	}
+	
+	public void ClampScenarioLimits()
+	{
+		transform.position = new Vector3(transform.position.x, Mathf.Clamp(transform.position.y,-65,0), transform.position.z);
 	}
 	
 	public void TakeDamage(int pDamage, bool pKnockBack)
@@ -64,7 +87,7 @@ public class Character : MonoBehaviour {
 	public void UseSkill(Skill pSkill)
 	{
 		Debug.Log("Atacou");
-		State = STATE.Attacking;
+		state = STATE.Attacking;
 		pSkill.lastTimeUsed = Time.time;
 		target.health-=(int)pSkill.CalculateDamage(skillStrength);
 		if (target.health <=0)
