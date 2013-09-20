@@ -4,8 +4,8 @@ using System.Collections;
 public class NPC : Character {
 	
 	public AI aiObject;
-	private float vision;
-	private float range;
+	public float vision;
+	public float range;
 	
 	
 	public ActionObject GetAction(AI pAI)

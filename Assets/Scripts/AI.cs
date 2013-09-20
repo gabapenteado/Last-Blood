@@ -3,10 +3,10 @@ using System.Collections;
 
 public class AI {
 
-	private Character myCharacter;
+	private NPC myCharacter;
 	private Character target;
 	private Vector3 direction = Vector3.left;
-	public AI(Character pMyCharacter, Character pTarget)
+	public AI(NPC pMyCharacter, Character pTarget)
 	{
 		myCharacter = pMyCharacter;
 		target = pTarget;
@@ -15,28 +15,38 @@ public class AI {
 	public ActionObject MakeDecision(Character pTarget)
 	{
 		target = pTarget;
+		Character closer = null;
+		float distCloser = 0;
+		float distNext;
+		Debug.Log(GameController.instance());
+		for (int i=0; i<GameController.instance().activeAllies.Length;i++)
+		{
+			
+			if (closer == null)
+			{
+				closer = GameController.instance().activeAllies[i];
+			}
+			else
+			{
+				distCloser = Vector3.Distance (myCharacter.transform.position, closer.transform.position);
+				distNext = Vector3.Distance (myCharacter.transform.position, GameController.instance().activeAllies[i].transform.position);
+				
+				if (distCloser < distNext)
+				{
+					closer = GameController.instance().activeAllies[i];
+				}
+			}
+		}
+		if (distCloser <= myCharacter.vision)
+		{
+			Vector3 heading = closer.transform.position - myCharacter.transform.position;
+			direction = heading/distCloser;
+		}
 		
-		Vector3 fwd = myCharacter.transform.TransformDirection(Vector3.left);
-        if (Physics.Raycast(myCharacter.transform.position, fwd, 10))
-		{
-			Debug.Log("There is something in front of the object!");
-			Debug.DrawLine(myCharacter.transform.position, new Vector3(myCharacter.transform.position.x-10, myCharacter.transform.position.y, myCharacter.transform.position.z));
-		}
-		/*
-		if (myCharacter.transform.position.x < -22)
-		{
-			direction = Vector3.right;
-			myCharacter.TakeDamage(1, false);
-		}
-		else if (myCharacter.transform.position.x > 22)
-		{
-			direction = Vector3.left;
-			myCharacter.TakeDamage(1, false);
-		}
-		*/
-		float distance = Vector3.Distance (myCharacter.transform.position, target.transform.position);
+       
+		//float distance = Vector3.Distance (myCharacter.transform.position, target.transform.position);
 		bool willAttack = false;
-		if (distance < 4)
+		if (distCloser < myCharacter.range)
 		{
 			willAttack = true;
 		}
