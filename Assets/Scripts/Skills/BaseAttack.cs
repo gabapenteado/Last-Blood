@@ -18,6 +18,15 @@ public class BaseAttack : Skill {
 		cost = 0;
 		causesKnockback = false;
 		lastTimeUsed = 0;
+		
+		myAnimationName = "QuickAttack_01";
+	}
+	
+	public void Use()
+	{
+		base.Use();
+		
+		//myCharacter.
 	}
 	
 	

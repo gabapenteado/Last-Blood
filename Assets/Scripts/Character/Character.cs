@@ -11,6 +11,7 @@ public class Character : MonoBehaviour {
 	//animation controller
 	public LayerMask hitEnabledLayers;
 	//Skills
+	public Skill[] skills;
 	public BaseAttack baseAttack;
 	private Vector3 moveDirection;
 	public Character target;
@@ -18,6 +19,8 @@ public class Character : MonoBehaviour {
 	private float lastDirection;
 	
 	public STATE state { get; set; }
+	
+	public string skillAnimationName;
 	
 	void Awake()
 	{
@@ -27,7 +30,13 @@ public class Character : MonoBehaviour {
 	
 	public void Update()
 	{
+		CheckAttackAnimation();
 		UpdateAnimation();
+	}
+	
+	virtual public void CheckAttackAnimation()
+	{
+		//if(skillAnimationName
 	}
 	
 	virtual public void UpdateAnimation()
@@ -35,10 +44,10 @@ public class Character : MonoBehaviour {
 		switch(state)
 		{
 			case STATE.Standing:
-				
+				PlayAnimation("Stand");
 			break;
 			case STATE.Running:
-				
+				PlayAnimation("Run");
 			break;
 		}
 	}
@@ -84,16 +93,27 @@ public class Character : MonoBehaviour {
 	    */
 	}
 	
+	virtual public void PlayAnimation(string pAnimationName)
+	{
+		//Esse override existe pra poder usar bem os dois sistemas do toolkit e do smooth moves
+	}
+	
 	public void UseSkill(Skill pSkill)
 	{
-		Debug.Log("Atacou");
-		state = STATE.Attacking;
-		pSkill.lastTimeUsed = Time.time;
-		target.health-=(int)pSkill.CalculateDamage(skillStrength);
-		if (target.health <=0)
+		if(pSkill.CalculateCooldown() > 0 || state == STATE.Attacking)
+		{
+			return;
+		}
+		
+		//pSkill.lastTimeUsed = Time.time;
+		//target.health-=(int)pSkill.CalculateDamage(skillStrength);
+		
+		pSkill.Use();
+		
+		/*if (target.health <=0)
 		{
 			target.Kill();
 			//fortress.LooseGame();
-		}
+		}*/
 	}
 }

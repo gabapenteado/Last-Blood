@@ -12,6 +12,13 @@ public class Rage : Character {
 	{
 		instance = this;
 		transform.localScale = new Vector3(transform.localScale.x*-1,transform.localScale.y,transform.localScale.z);
+		
+		CreateSkills();
+	}
+	
+	public void Start()
+	{
+		StartSkillTab();
 	}
 	
 	public void Update()
@@ -21,27 +28,53 @@ public class Rage : Character {
 		base.Update();
 	}
 	
+	public void CreateSkills()
+	{
+		skills = new Skill[4];
+		for(int i = 0; i < skills.Length; i ++)
+		{
+			skills[i] = new BaseAttack();
+			skills[i].Init(this);
+		}		
+	}
+	
+	public void StartSkillTab()
+	{
+		for(int i = 0; i < skills.Length; i ++)
+		{
+			SkillTab.instance.InitSkills(skills[i],i);
+		}	
+	}
+	
 	public void CheckMovement()
 	{
-		if(Joystick.instance.GetValue().magnitude > 0.2)
+		if(state != STATE.Attacking && state != STATE.Knocked)
 		{
-			Move(Joystick.instance.GetValue(), speed);
-		}else
+			if(Joystick.instance.GetValue().magnitude > 0.2)
+			{
+				Move(Joystick.instance.GetValue(), speed);
+			}else
+			{
+				state = STATE.Standing;
+			}
+		}
+	}
+	
+	override public void CheckAttackAnimation()
+	{
+		if(state != STATE.Attacking)
+		{
+			return;
+		}
+		
+		if(!boneAnimation.IsPlaying(skillAnimationName))
 		{
 			state = STATE.Standing;
 		}
 	}
 	
-	public override void  UpdateAnimation()
+	public override void PlayAnimation(string pSkill)
 	{
-		switch(state)
-		{
-			case STATE.Standing:
-				boneAnimation.CrossFade("Stand");
-			break;
-			case STATE.Running:
-				boneAnimation.CrossFade("Run");
-			break;
-		}
+		boneAnimation.CrossFade(pSkill);
 	}
 }
