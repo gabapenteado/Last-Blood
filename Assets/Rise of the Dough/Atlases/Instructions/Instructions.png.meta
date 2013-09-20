@@ -1,10 +1,21 @@
 fileFormatVersion: 2
-guid: 6be5bdba7732b6d4f8249cc98fb3ddba
+guid: 9c0c665174a033a4483e9cae66e2a7a3
+labels:
+- 2d
+- animated
+- animation
+- sprite
+- smooth
+- bone
+- skeletal
+- skinned
+- mesh
+- animate
 TextureImporter:
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
-    enableMipMap: 1
+    enableMipMap: 0
     linearTexture: 0
     correctGamma: 0
     fadeOut: 0
@@ -20,17 +31,17 @@ TextureImporter:
   grayScaleToAlpha: 0
   generateCubemap: 0
   seamlessCubemap: 0
-  textureFormat: -1
-  maxTextureSize: 1024
+  textureFormat: 3
+  maxTextureSize: 4096
   textureSettings:
-    filterMode: -1
+    filterMode: 0
     aniso: -1
     mipBias: -1
-    wrapMode: -1
+    wrapMode: 1
   nPOTScale: 1
   lightmap: 0
   compressionQuality: 50
   alphaIsTransparency: 0
-  textureType: -1
+  textureType: 5
   buildTargetSettings: []
   userData: 
