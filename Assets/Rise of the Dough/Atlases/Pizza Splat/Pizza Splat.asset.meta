@@ -1,4 +1,15 @@
 fileFormatVersion: 2
-guid: 8302eb31c30cf994fbd1d3a049ad204f
+guid: 81115a8a8ae5647439127df23b1720ae
+labels:
+- 2d
+- animated
+- animation
+- sprite
+- smooth
+- bone
+- skeletal
+- skinned
+- mesh
+- animate
 NativeFormatImporter:
   userData: 
