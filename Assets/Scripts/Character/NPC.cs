@@ -4,8 +4,8 @@ using System.Collections;
 public class NPC : Character {
 	
 	public AI aiObject;
-	private float vision;
-	private float range;
+	public float vision;
+	public float range;
 	
 	
 	public ActionObject GetAction(AI pAI)
@@ -30,7 +30,7 @@ public class NPC : Character {
 	
 	// Use this for initialization
 	void Start () {
-	
+		range = 40;
 	}
 	
 	// Update is called once per frame

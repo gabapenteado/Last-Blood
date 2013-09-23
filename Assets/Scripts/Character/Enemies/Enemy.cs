@@ -9,7 +9,7 @@ public class Enemy : NPC {
 	
 	void Awake()
 	{
-		speed = 5;
+		speed = 50;
 		health = 10;
 		skillStrength = 1;
 		aiObject = new AI(this, target);
