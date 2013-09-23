@@ -11,18 +11,16 @@ public class Character : MonoBehaviour {
 	//animation controller
 	public LayerMask hitEnabledLayers;
 	//Skills
+	public Skill[] skills;
 	public BaseAttack baseAttack;
 	private Vector3 moveDirection;
 	public Character target;
-	public enum STATE
-	{
-		Standing,
-		Running,
-		Attacking,
-        Dying
-	}
 	
-	public STATE State { get; set; }
+	private float lastDirection;
+	
+	public STATE state { get; set; }
+	
+	public string skillAnimationName;
 	
 	void Awake()
 	{
@@ -30,16 +28,50 @@ public class Character : MonoBehaviour {
 			
 	}
 	
-	void Update()
+	public void Update()
 	{
-		
+		CheckAttackAnimation();
+		UpdateAnimation();
+	}
+	
+	virtual public void CheckAttackAnimation()
+	{
+		//if(skillAnimationName
+	}
+	
+	virtual public void UpdateAnimation()
+	{
+		switch(state)
+		{
+			case STATE.Standing:
+				PlayAnimation("Stand");
+			break;
+			case STATE.Running:
+				PlayAnimation("Run");
+			break;
+		}
 	}
 	
 	public void Move(Vector3 pMoveDirection, int pSpeed)
 	{
-		State = STATE.Running;
-		controller.Move(pMoveDirection * pSpeed * Time.deltaTime);
+		state = STATE.Running;
+		//controller.Move((pMoveDirection.normalized) * pSpeed * Time.deltaTime);
 		
+		transform.position += (pMoveDirection.normalized) * pSpeed * Time.deltaTime;
+		
+		ClampScenarioLimits();
+		
+		if(Mathf.Sign(lastDirection) != Mathf.Sign(pMoveDirection.x))
+		{
+			transform.localScale = new Vector3(transform.localScale.x*-1,transform.localScale.y,transform.localScale.z);
+		}
+		
+		lastDirection = pMoveDirection.x;
+	}
+	
+	public void ClampScenarioLimits()
+	{
+		transform.position = new Vector3(transform.position.x, Mathf.Clamp(transform.position.y,-65,0), transform.position.z);
 	}
 	
 	public void TakeDamage(int pDamage, bool pKnockBack)
@@ -61,16 +93,27 @@ public class Character : MonoBehaviour {
 	    */
 	}
 	
+	virtual public void PlayAnimation(string pAnimationName)
+	{
+		//Esse override existe pra poder usar bem os dois sistemas do toolkit e do smooth moves
+	}
+	
 	public void UseSkill(Skill pSkill)
 	{
-		Debug.Log("Atacou");
-		State = STATE.Attacking;
-		pSkill.lastTimeUsed = Time.time;
-		target.health-=(int)pSkill.CalculateDamage(skillStrength);
-		if (target.health <=0)
+		if(pSkill.CalculateCooldown() > 0 || state == STATE.Attacking)
+		{
+			return;
+		}
+		
+		//pSkill.lastTimeUsed = Time.time;
+		//target.health-=(int)pSkill.CalculateDamage(skillStrength);
+		
+		pSkill.Use();
+		
+		/*if (target.health <=0)
 		{
 			target.Kill();
 			//fortress.LooseGame();
-		}
+		}*/
 	}
 }
