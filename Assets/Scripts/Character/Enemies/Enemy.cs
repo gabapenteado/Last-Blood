@@ -14,6 +14,7 @@ public class Enemy : NPC {
 		skillStrength = 1;
 		aiObject = new AI(this, target);
 		baseAttack = new BaseAttack();
+		baseAttack.Init(this);
 	}
 	
 	void Update()
