@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Rage : Character {
 	
-	static Rage instance;
+	public static Rage instance;
 	
 	public void Awake()
 	{

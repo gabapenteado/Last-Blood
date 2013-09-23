@@ -30,7 +30,7 @@ public class NPC : Character {
 	
 	// Use this for initialization
 	void Start () {
-	
+		range = 40;
 	}
 	
 	// Update is called once per frame

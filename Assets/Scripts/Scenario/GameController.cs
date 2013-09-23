@@ -1,13 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class GameController : MonoBehaviour {
+public class GameController {
 	
 	private int totalStageTime;
 	private bool isSurvival;
 	private float currentStageTime;
 	private Enemy[] activeEnemies;
-	public Character[] activeAllies;
+	public ArrayList activeAllies;
 	
 	private static GameController _instance;
 	
@@ -30,7 +30,8 @@ public class GameController : MonoBehaviour {
 	
 	private void Init()
 	{
-			
+		_instance.activeAllies = new ArrayList();
+		_instance.activeAllies.Add(Rage.instance);
 	}
 	
 	// Use this for initialization
