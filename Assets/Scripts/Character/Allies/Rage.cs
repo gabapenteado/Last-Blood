@@ -7,11 +7,20 @@ public class Rage : Character {
 	static public Rage instance;
 	public BoneAnimation boneAnimation;
 	
+	public float currentRage;
+	public float maximumRage;
+	
 	
 	public void Awake()
 	{
 		instance = this;
 		transform.localScale = new Vector3(transform.localScale.x*-1,transform.localScale.y,transform.localScale.z);
+		
+		maxHealth = 200;
+		health = maxHealth;
+		
+		maximumRage = 200;
+		currentRage = maximumRage;
 		
 		CreateSkills();
 	}

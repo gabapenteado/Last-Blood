@@ -2,8 +2,10 @@
 using System.Collections;
 
 public class Character : MonoBehaviour {
-
-	public int health;
+	
+	
+	public float health;
+	public float maxHealth;
 	public int speed;
 	public string name;
 	public float skillStrength;
