@@ -18,7 +18,7 @@ public class NPC : Character {
 	{
 		if (!pActionObject.willAttack)
 		{
-			spriteAnimator.Play(spriteAnimator.GetClipByName("ZombieWalk"));
+			spriteAnimator.Play(spriteAnimator.GetClipById(1));
 			Move(pActionObject.moveDirection, speed);
 		}
 		else{
@@ -26,7 +26,7 @@ public class NPC : Character {
 			if ((baseAttack.cooldown + baseAttack.lastTimeUsed)<Time.time)
 			{
 				spriteAnimator.Stop();
-				//spriteAnimator.Play(spriteAnimator.GetClipByName("Attack"));
+				spriteAnimator.Play(spriteAnimator.GetClipByName("Attack"));
 				UseSkill(baseAttack);
 			}
 		}
