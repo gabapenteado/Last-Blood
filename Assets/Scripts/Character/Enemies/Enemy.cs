@@ -15,6 +15,7 @@ public class Enemy : NPC {
 		aiObject = new AI(this, target);
 		baseAttack = new BaseAttack();
 		baseAttack.Init(this);
+		vision = 50;
 	}
 	
 	void Update()

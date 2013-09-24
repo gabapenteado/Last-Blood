@@ -7,6 +7,7 @@ public class NPC : Character {
 	public float vision;
 	public float range;
 	
+	public tk2dSpriteAnimator spriteAnimator;
 	
 	public ActionObject GetAction(AI pAI)
 	{
@@ -17,12 +18,15 @@ public class NPC : Character {
 	{
 		if (!pActionObject.willAttack)
 		{
+			spriteAnimator.Play(spriteAnimator.GetClipByName("ZombieWalk"));
 			Move(pActionObject.moveDirection, speed);
 		}
 		else{
 			
 			if ((baseAttack.cooldown + baseAttack.lastTimeUsed)<Time.time)
 			{
+				spriteAnimator.Stop();
+				//spriteAnimator.Play(spriteAnimator.GetClipByName("Attack"));
 				UseSkill(baseAttack);
 			}
 		}
@@ -30,7 +34,7 @@ public class NPC : Character {
 	
 	// Use this for initialization
 	void Start () {
-		range = 40;
+		range = 30;
 	}
 	
 	// Update is called once per frame
