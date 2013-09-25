@@ -18,7 +18,7 @@ public class AI {
 		Character closer = null;
 		float distCloser = 0;
 		float distNext;
-		//Debug.Log(GameController.instance().activeAllies);
+		
 		for (int i=0; i<GameController.instance().activeAllies.Count;i++)
 		{
 			
@@ -27,28 +27,29 @@ public class AI {
 				
 				closer = (Character)GameController.instance().activeAllies[i];
 				distCloser = Utility.HorizontalDistance(myCharacter.transform.position, closer.transform.position);
-				
 			}
 			else
 			{
-				target = (Character)GameController.instance().activeAllies[i];
+				target = (Character)GameController.instance().activeAllies[i];				
 				distCloser = Utility.HorizontalDistance(myCharacter.transform.position, closer.transform.position);
 				distNext = Utility.HorizontalDistance(myCharacter.transform.position, target.transform.position);
-				
-				if (distCloser < distNext)
+				if (distCloser > distNext)
 				{
 					closer = (Character)GameController.instance().activeAllies[i];
+					myCharacter.target = target;
+					distCloser = distNext;
+				}
+				else
+				{
+					target = closer;
+					myCharacter.target = target;
 				}
 			}
 			
 		}
-		Debug.Log(distCloser + " E " + myCharacter.vision);
 		if (distCloser <= myCharacter.vision)
 		{
-			Debug.Log("distancia menor que a visao");
 			Vector3 heading = closer.transform.position - myCharacter.transform.position;
-			Debug.Log(heading);
-			Debug.Log("dist: "+distCloser);
 			direction = heading/distCloser;
 			if ( distCloser<= myCharacter.range)
 			{

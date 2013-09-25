@@ -18,18 +18,20 @@ public class NPC : Character {
 	{
 		if (!pActionObject.willAttack)
 		{
-			spriteAnimator.Play(spriteAnimator.GetClipById(1));
+			PlayAnimation("Walk");
 			Move(pActionObject.moveDirection, speed);
 		}
 		else{
-			
 			if ((baseAttack.cooldown + baseAttack.lastTimeUsed)<Time.time)
 			{
-				spriteAnimator.Stop();
-				spriteAnimator.Play(spriteAnimator.GetClipByName("Attack"));
 				UseSkill(baseAttack);
 			}
 		}
+	}
+	
+	public override void PlayAnimation(string pAnimationName)
+	{
+		spriteAnimator.Play(spriteAnimator.GetClipByName(pAnimationName));
 	}
 	
 	// Use this for initialization

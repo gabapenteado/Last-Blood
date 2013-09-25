@@ -102,20 +102,16 @@ public class Character : MonoBehaviour {
 	
 	public void UseSkill(Skill pSkill)
 	{
-		if(pSkill.CalculateCooldown() > 0 || state == STATE.Attacking)
+		if(pSkill.CalculateCooldown() > 0)
 		{
 			return;
 		}
 		
-		//pSkill.lastTimeUsed = Time.time;
-		//target.health-=(int)pSkill.CalculateDamage(skillStrength);
+
 		
 		pSkill.Use();
 		
-		/*if (target.health <=0)
-		{
-			target.Kill();
-			//fortress.LooseGame();
-		}*/
+		//teste de ataque
+		target.TakeDamage((int)pSkill.CalculateDamage(skillStrength), pSkill.causesKnockback);
 	}
 }
