@@ -60,7 +60,7 @@ public class Character : MonoBehaviour {
 		//controller.Move((pMoveDirection.normalized) * pSpeed * Time.deltaTime);
 		
 		transform.position += (pMoveDirection.normalized) * pSpeed * Time.deltaTime;
-		
+		transform.position += new Vector3(0, 0, pMoveDirection.normalized.y/10 * pSpeed * Time.deltaTime);
 		ClampScenarioLimits();
 		
 		if(Mathf.Sign(lastDirection) != Mathf.Sign(pMoveDirection.x))
@@ -73,7 +73,7 @@ public class Character : MonoBehaviour {
 	
 	public void ClampScenarioLimits()
 	{
-		transform.position = new Vector3(transform.position.x, Mathf.Clamp(transform.position.y,-65,0), transform.position.z);
+		transform.position = new Vector3(transform.position.x, Mathf.Clamp(transform.position.y,-65,0), Mathf.Clamp(transform.position.z,540f,546.5f));
 	}
 	
 	public void TakeDamage(int pDamage, bool pKnockBack)
