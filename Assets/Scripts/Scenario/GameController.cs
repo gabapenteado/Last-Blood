@@ -32,6 +32,7 @@ public class GameController {
 	{
 		_instance.activeAllies = new ArrayList();
 		_instance.activeAllies.Add(Rage.instance);
+		_instance.activeAllies.Add(Fortress.instance);
 	}
 	
 	// Use this for initialization

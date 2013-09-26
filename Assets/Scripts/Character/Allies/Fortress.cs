@@ -4,9 +4,11 @@ using System.Collections;
 public class Fortress : Character {
 	
 	public tk2dTextMesh text;
+	static public Fortress instance;
 	
 	void Awake()
 	{
+		instance = this;
 		text.renderer.enabled = false;
 		health = 10;
 		

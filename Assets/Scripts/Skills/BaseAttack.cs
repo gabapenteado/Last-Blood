@@ -19,7 +19,7 @@ public class BaseAttack : Skill {
 		causesKnockback = false;
 		lastTimeUsed = 0;
 		
-		myAnimationName = "QuickAttack_01";
+		myAnimationName = "Attack";
 	}
 	
 	public void Use()
