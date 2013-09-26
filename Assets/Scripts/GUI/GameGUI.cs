@@ -2,14 +2,18 @@
 using System.Collections;
 
 public class GameGUI : MonoBehaviour {
-
-	// Use this for initialization
-	void Start () {
-		Input.multiTouchEnabled = false;
+	
+	public static GameGUI instance;
+	
+	public DamageFeedback damageFeedback;
+	
+	void Awake()
+	{
+		instance = this;
 	}
 	
-	// Update is called once per frame
-	void Update () {
-	
+	void Start () 
+	{
+		Input.multiTouchEnabled = false;
 	}
 }

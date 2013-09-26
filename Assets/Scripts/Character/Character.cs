@@ -24,6 +24,8 @@ public class Character : MonoBehaviour {
 	
 	public string skillAnimationName;
 	
+	protected bool isEnemy;
+	
 	void Awake()
 	{
 		
@@ -79,6 +81,12 @@ public class Character : MonoBehaviour {
 	public void TakeDamage(int pDamage, bool pKnockBack)
 	{
 		health-=pDamage;
+		
+		DamageFeedback _feedback = Instantiate(GameGUI.instance.damageFeedback,transform.position+Vector3.up*60,Quaternion.identity) as DamageFeedback;
+		
+		_feedback.Init(pDamage, isEnemy,transform);
+		
+		
 		/*
 		if (health <= 0)
 		{
