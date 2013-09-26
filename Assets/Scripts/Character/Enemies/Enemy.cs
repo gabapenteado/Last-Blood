@@ -31,8 +31,7 @@ public class Enemy : NPC {
 				Debug.Log("chamando getAction :"+Time.time);
 				lastAction = GetAction(aiObject);
 				lastAICheck = Time.time;
-			}
-			
+			}			
 			
 			PerformAIAction(lastAction);	
 		}
