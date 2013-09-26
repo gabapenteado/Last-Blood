@@ -6,6 +6,7 @@ public class NPC : Character {
 	public AI aiObject;
 	public float vision;
 	public float range;
+	public GameObject baseAttackVFX;
 	
 	public tk2dSpriteAnimator spriteAnimator;
 	
@@ -24,7 +25,7 @@ public class NPC : Character {
 		else{
 			if ((baseAttack.cooldown + baseAttack.lastTimeUsed)<Time.time)
 			{
-				UseSkill(baseAttack);
+				UseSkill(baseAttack);				
 			}
 		}
 	}
@@ -32,6 +33,7 @@ public class NPC : Character {
 	public override void PlayAnimation(string pAnimationName)
 	{
 		spriteAnimator.Play(spriteAnimator.GetClipByName(pAnimationName));
+		if(spriteAnimator.CurrentClip.name == "Attack")StartCoroutine(InstantiateVFX());			
 	}
 	
 	// Use this for initialization
@@ -39,8 +41,14 @@ public class NPC : Character {
 		range = 30;
 	}
 	
-	// Update is called once per frame
-	void Update () {
-	
+	IEnumerator InstantiateVFX()
+	{
+		yield return new WaitForSeconds(0.5f);
+		if(baseAttackVFX)
+		{
+			GameObject effect = (GameObject)Instantiate(baseAttackVFX,new Vector3(transform.position.x,transform.position.y + 40, transform.position.z - 100),Quaternion.identity);
+			effect.transform.localScale = this.transform.localScale;			
+		}
+		yield return null;
 	}
 }
