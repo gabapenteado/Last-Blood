@@ -112,6 +112,9 @@ public class Character : MonoBehaviour {
 		pSkill.Use();
 		
 		//teste de ataque
-		target.TakeDamage((int)pSkill.CalculateDamage(skillStrength), pSkill.causesKnockback);
+		if (target != null)
+		{
+			target.TakeDamage((int)pSkill.CalculateDamage(skillStrength), pSkill.causesKnockback);
+		}
 	}
 }
