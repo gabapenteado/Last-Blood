@@ -47,18 +47,17 @@ public class AI {
 			}
 			
 		}
-		if (distCloser <= myCharacter.vision)
+		if (distCloser > myCharacter.vision)
 		{
-			Vector3 heading = closer.transform.position - myCharacter.transform.position;
-			direction = heading/distCloser;
-			if ( distCloser<= myCharacter.range)
-			{
-				direction = Vector3.zero;	
-			}
-			
+			closer = Fortress.instance;							
 		}
 		
-		
+		Vector3 heading = closer.transform.position - myCharacter.transform.position;
+		direction = heading/distCloser;
+		if ( distCloser<= myCharacter.range)
+		{
+			direction = Vector3.zero;	
+		}
        
 		//float distance = Vector3.Distance (myCharacter.transform.position, target.transform.position);
 		bool willAttack = false;
@@ -66,7 +65,6 @@ public class AI {
 		{
 			willAttack = true;
 		}
-		
 		return new ActionObject(willAttack, direction);
 	}
 }
