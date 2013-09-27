@@ -28,7 +28,6 @@ public class Enemy : NPC {
 			//Debug.Log("lastAction :"+lastAction + " : " + Time.time + " : " + lastAICheck);
 			if (lastAction == null || (Time.time > (lastAICheck + delay)))
 			{
-				//Debug.Log("chamando getAction :"+Time.time);
 				lastAction = GetAction(aiObject);
 				lastAICheck = Time.time;
 			}			
