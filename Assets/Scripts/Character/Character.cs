@@ -48,10 +48,10 @@ public class Character : MonoBehaviour {
 		switch(state)
 		{
 			case STATE.Standing:
-				PlayAnimation("Stand");
+				PlayAnimation("Idle");
 			break;
 			case STATE.Running:
-				PlayAnimation("Run");
+				PlayAnimation("Walk");
 			break;
 		}
 	}
