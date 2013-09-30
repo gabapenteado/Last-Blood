@@ -87,7 +87,11 @@ public class Rage : Character {
 	
 	public override void PlayAnimation(string pSkill)
 	{
-		boneAnimation.CrossFade(pSkill);
+		if(pSkill != "Death")
+		{
+			boneAnimation.Stop("Death");
+			boneAnimation.CrossFade(pSkill);
+		}else{boneAnimation.Play(pSkill);}
 	}
 	public override void Kill()
 	{			
