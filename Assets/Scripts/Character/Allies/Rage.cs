@@ -9,6 +9,7 @@ public class Rage : Character {
 	
 	public float currentRage;
 	public float maximumRage;
+	public float rebirthTime;
 	
 	
 	public void Awake()
@@ -21,6 +22,8 @@ public class Rage : Character {
 		
 		maximumRage = 200;
 		currentRage = maximumRage;
+		
+		rebirthTime = 5f;
 		
 		CreateSkills();
 	}
@@ -57,7 +60,7 @@ public class Rage : Character {
 	
 	public void CheckMovement()
 	{
-		if(state != STATE.Attacking && state != STATE.Knocked)
+		if(state != STATE.Attacking && state != STATE.Knocked && state != STATE.Dying)
 		{
 			if(Joystick.instance.GetValue().magnitude > 0.2)
 			{
@@ -85,5 +88,21 @@ public class Rage : Character {
 	public override void PlayAnimation(string pSkill)
 	{
 		boneAnimation.CrossFade(pSkill);
+	}
+	public override void Kill()
+	{			
+		StartCoroutine(Rebirth());
+	}
+	IEnumerator Rebirth()
+	{
+		GameController.instance().activeAllies.Remove(Rage.instance);
+		state = STATE.Dying;
+		yield return new WaitForSeconds(rebirthTime);
+		health = maxHealth;
+		currentRage = maximumRage;
+		state = STATE.Standing;
+		GameController.instance().activeAllies.Add(Rage.instance);
+		transform.position = Fortress.instance.transform.position;		
+		yield break;
 	}
 }

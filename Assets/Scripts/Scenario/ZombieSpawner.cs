@@ -8,37 +8,24 @@ public class ZombieSpawner : Spawner
 	private float currentGoldValue;
 	private float goldSpeed;
 	private float goldSpeedAcc;
-	private float waveNumber;
-	private float enemyMaxNumber;
+	private float waveNumber;	
 	private float enemyCurrentNumber;
 	private int numberOfZombies;
 	private EnemyType enemyType;
 	
 	void Awake ()
 	{
-		goldSpeed = 1.5f;
-		goldSpeedAcc = 0.2f;
+		goldSpeed = 0.5f;
+		goldSpeedAcc = 0.1f;
 		originalSpawnTime = 5f;
-		currentSpawnTime = originalSpawnTime;
-		enemyMaxNumber = 3f;
+		currentSpawnTime = originalSpawnTime;		
 	}
 
 	override protected void ChooseEnemy ()
 	{
-		while (currentGoldValue > 1) { //do this while I still have gold to spend
-			int i = Random.Range (0, (int)EnemyType.nZombieTypeCount); // get a random number from 0 to the amount of enemies on my enum
-//				if(i == 0)
-//				{
-//					enemyType = EnemyType.ZombieG;
-//					currentGoldValue--;
-//				}
-//				if(i == 1)
-//				{
-//					enemyType = EnemyType.ZombieR;
-//					currentGoldValue -= 2f;
-//				}
-//				SpawnWave(enemyType);
-				
+		while (currentGoldValue > 1) //do this while I still have gold to spend >> be sure that the number is iquals to the cheapest Zombie
+		{ 
+			int i = Random.Range (0, (int)EnemyType.nZombieTypeCount); // get a random number from 0 to the amount of enemies on my enum				
 			int index = 0;
 			foreach (GameObject prefab in possibleEnemies) { //check to see which enemy was selected					
 				if (i == index) 
