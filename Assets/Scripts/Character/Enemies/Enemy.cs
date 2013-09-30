@@ -18,6 +18,7 @@ public class Enemy : NPC {
 		baseAttack = new BaseAttack();
 		baseAttack.Init(this);
 		vision = 50;
+		target = Fortress.instance;
 	}
 	
 	void Update()

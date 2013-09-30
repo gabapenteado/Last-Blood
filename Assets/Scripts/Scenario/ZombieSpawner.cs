@@ -4,6 +4,7 @@ using System.Collections;
 public class ZombieSpawner : Spawner
 {	
 	public GameObject[] possibleEnemies;
+	public bool debug = false;
 	private float currentGoldValue;
 	private float goldSpeed;
 	private float goldSpeedAcc;
@@ -65,12 +66,15 @@ public class ZombieSpawner : Spawner
 	override protected void SpawnWave (int n)
 	{
 		//Instantiate(possibleEnemies[(int)pSpawnType], new Vector3(0, Random.Range(-5,5), 0), Quaternion.identity);	
-		Instantiate (possibleEnemies [n], new Vector3 (Random.Range (-2f, 2f), Random.Range (-5f, 5f), 0), Quaternion.identity);
+		Instantiate (possibleEnemies [n], new Vector3 (transform.position.x + Random.Range (-20f, 20f),transform.position.y + Random.Range (-50f, 50f), transform.position.z), Quaternion.identity);
 	}
 	void OnGUI ()
 	{
-		GUI.TextArea(new Rect(30,15, 45, 30),waveNumber.ToString());
-		GUI.TextArea(new Rect(30,55, 45, 30),currentGoldValue.ToString());
-		GUI.TextArea(new Rect(30,95, 45, 30),numberOfZombies.ToString());
+		if(debug)
+		{
+			GUI.TextArea(new Rect(30,15, 45, 30),waveNumber.ToString());
+			GUI.TextArea(new Rect(30,55, 45, 30),currentGoldValue.ToString());
+			GUI.TextArea(new Rect(30,95, 45, 30),numberOfZombies.ToString());
+		}
 	}
 }
