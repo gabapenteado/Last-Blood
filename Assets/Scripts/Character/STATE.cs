@@ -7,5 +7,6 @@ public enum STATE
 	Running,
 	Attacking,
 	Knocked,
-    Dying
+    Dying,
+	Dead
 }

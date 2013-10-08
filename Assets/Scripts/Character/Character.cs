@@ -58,8 +58,7 @@ public class Character : MonoBehaviour {
 			case STATE.Dying:
 				PlayAnimation("Death");
 			break;
-		}
-		Debug.Log(state);
+		}		
 	}
 	
 	public void Move(Vector3 pMoveDirection, int pSpeed)
