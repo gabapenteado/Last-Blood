@@ -7,6 +7,8 @@ public class BaseAttack : Skill {
 	public int damageLevel;
 	public int lifestealLevel;
 	
+	private GameObject slash;
+	
 	public BaseAttack()
 	{
 		cooldownLevel = 1;
@@ -14,20 +16,25 @@ public class BaseAttack : Skill {
 		lifestealLevel = 1;
 		damageMultiplier = 1;
 		baseDamage = 0;
-		cooldown = 2;
+		cooldown = 5;
 		cost = 0;
 		causesKnockback = false;
 		lastTimeUsed = 0;
 		
 		myAnimationName = "Attack";
+		//slash = GameObject.FindGameObjectWithTag("Slash");
 	}
 	
-	public void Use()
+	public void Use(Transform _transform)
 	{
-		base.Use();
+		base.Use(_transform);
 		
-		//myCharacter.
+		//GameObject effect = (GameObject)Instantiate(this.gameObject,new Vector3(_transform.position.x,transform.position.y + 40, _transform.position.z - 100),Quaternion.identity);
+		//willDie = true;
+		//effect.transform.localScale = this.transform.localScale;
+		
 	}
+	
 	
 	
 }

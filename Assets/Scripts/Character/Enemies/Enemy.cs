@@ -15,8 +15,8 @@ public class Enemy : NPC {
 		health = 10;
 		skillStrength = 1;
 		aiObject = new AI(this, target);
-		baseAttack = new BaseAttack();
-		baseAttack.Init(this);
+		baseAttack = GameObject.FindGameObjectWithTag("Slash");
+		//baseAttack.Init(this);
 		vision = 50;
 	}
 	
