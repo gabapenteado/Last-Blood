@@ -18,6 +18,7 @@ public class Enemy : NPC {
 		baseAttack = GameObject.FindGameObjectWithTag("Slash");
 		//baseAttack.Init(this);
 		vision = 50;
+		target = Fortress.instance;
 	}
 	
 	void Update()

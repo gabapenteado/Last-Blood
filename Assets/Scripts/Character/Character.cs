@@ -14,6 +14,7 @@ public class Character : MonoBehaviour {
 	public LayerMask hitEnabledLayers;
 	//Skills
 	public Skill[] skills;
+
 	public GameObject baseAttack;
 	public GameObject baseAttackIns;
 	private Vector3 moveDirection;
@@ -53,8 +54,12 @@ public class Character : MonoBehaviour {
 			break;
 			case STATE.Running:
 				PlayAnimation("Walk");
+			break;	
+			case STATE.Dying:
+				PlayAnimation("Death");
 			break;
 		}
+		Debug.Log(state);
 	}
 	
 	public void Move(Vector3 pMoveDirection, int pSpeed)
@@ -87,13 +92,10 @@ public class Character : MonoBehaviour {
 		
 		_feedback.Init(pDamage, isEnemy,transform);
 		
-		
-		
 		if (health <= 0)
 		{
 			Kill ();
-		}
-		
+		}		
 	}
 	
 	public virtual void Kill()

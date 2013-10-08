@@ -16,10 +16,10 @@ public class Fortress : Character {
 	
 	public override void Kill()
 	{
-		LooseGame();
+		LoseGame();
 	}
 	
-	public void LooseGame()
+	public void LoseGame()
 	{
 		Debug.Log("Perdeu o jogo");
 		text.renderer.enabled = true;
