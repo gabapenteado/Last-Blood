@@ -31,18 +31,18 @@ public class NPC : Character {
 			Move(pActionObject.moveDirection, speed);
 		}
 		else{
-			Debug.Log("verificando skill: " + skill);
+			//Debug.Log("verificando skill: " + skill);
 			if (skill == null)
 			{
-				Debug.Log("iniciando uma nova");
+				//Debug.Log("iniciando uma nova");
 				GetSkill();
 			}
 			
 			//if ((baseAttack.cooldown + baseAttack.lastTimeUsed)<Time.time)
-			Debug.Log("verificando o cooldown: " + skill.cooldown + " : " + skill.lastTimeUsed);
+			//Debug.Log("verificando o cooldown: " + skill.cooldown + " : " + skill.lastTimeUsed);
 			if ((skill.cooldown + skill.lastTimeUsed)<Time.time)
 			{
-				Debug.Log("chamando a skill");
+				//Debug.Log("chamando a skill");
 				UseSkill(skill);
 //				baseAttackIns.animation.Play();
 				GetEffect();
@@ -60,6 +60,7 @@ public class NPC : Character {
 	public override void PlayAnimation(string pAnimationName)
 	{
 		spriteAnimator.Play(spriteAnimator.GetClipByName(pAnimationName));
+		if(pAnimationName == "Death") state = STATE.Dead;
 		//if(spriteAnimator.CurrentClip.name == "Attack")StartCoroutine(InstantiateVFX());			
 	}
 	
@@ -83,8 +84,6 @@ public class NPC : Character {
 	{
 		baseAttackIns = (GameObject)Instantiate(baseAttack,new Vector3(this.transform.position.x+1000,this.transform.position.y + 40, this.transform.position.z - 100),Quaternion.identity);
 		//baseAttackIns = (GameObject)Instantiate(baseAttack);
-		
-		
 	}
 	
 	IEnumerator StartEfect()
@@ -96,5 +95,9 @@ public class NPC : Character {
 		comp = baseAttackIns.GetComponent("DestroyAfterAnim") as DestroyAfterAnim;
 		comp.willDie = true;
 		comp.played = true;
+	}
+	public override void Kill()
+	{			
+		state = STATE.Dying;
 	}
 }

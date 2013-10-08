@@ -24,7 +24,7 @@ public class Enemy : NPC {
 	void Update()
 	{
 		
-		if (health >0 /*&& Time.time > (lastAICheck + delay)*/)
+		if (health > 0 /*&& Time.time > (lastAICheck + delay)*/)
 		{
 			//Debug.Log("lastAction :"+lastAction + " : " + Time.time + " : " + lastAICheck);
 			if (lastAction == null || (Time.time > (lastAICheck + delay)))
@@ -35,6 +35,6 @@ public class Enemy : NPC {
 			
 			PerformAIAction(lastAction);	
 		}
-		
-	}
+		base.Update();
+	}	
 }

@@ -11,7 +11,8 @@ public class Rage : Character {
 	public float maximumRage;
 	public float rebirthTime;
 	
-	
+	private Skill skill;
+	private DestroyAfterAnim comp;
 	public void Awake()
 	{
 		instance = this;
@@ -26,6 +27,7 @@ public class Rage : Character {
 		rebirthTime = 5f;
 		
 		CreateSkills();
+		baseAttack = GameObject.FindGameObjectWithTag("Slash");
 	}
 	
 	public void Start()
@@ -92,7 +94,22 @@ public class Rage : Character {
 			boneAnimation.Stop("Death");
 			boneAnimation.CrossFade(pSkill);
 		}else{boneAnimation.Play(pSkill);}
-	}
+		if(pSkill == "Attack")
+		{
+			Collider[] enemies = Physics.OverlapSphere(transform.position, 30f);
+			int i = 0;
+			while(i < (enemies.Length - 1))
+			{			
+				if((transform.position.y - enemies[i].transform.position.y) < 5f)
+				{
+					Enemy enemy = enemies[i].GetComponent<Enemy>();					
+					enemy.TakeDamage((int)skills[0].CalculateDamage(skillStrength), false);					
+					Debug.Log("Do Dmg on " + enemies[i].name);
+				}
+				i++;
+			}
+		}
+	}	
 	public override void Kill()
 	{			
 		StartCoroutine(Rebirth());
