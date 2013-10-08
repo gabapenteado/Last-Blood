@@ -16,7 +16,7 @@ public class BaseAttack : Skill {
 		lifestealLevel = 1;
 		damageMultiplier = 1;
 		baseDamage = 0;
-		cooldown = 5;
+		cooldown = 1;
 		cost = 0;
 		causesKnockback = false;
 		lastTimeUsed = 0;

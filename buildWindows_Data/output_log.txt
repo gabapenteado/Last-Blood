@@ -1,0 +1,160 @@
+Initialize engine version: 4.2.1f4 (4d30acc925c2)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 9.0c [aticfx32.dll 8.17.10.1151]
+    Renderer: Radeon (TM) HD 6470M
+    Vendor:   ATI
+    VRAM:     1012 MB (via DXGI)
+    Caps:     Shader=30 DepthRT=1 NativeDepth=1 NativeShadow=1 DF16=1 DF24=1 INTZ=1 RAWZ=0 NULL=1 RESZ=1 SlowINTZ=1
+Begin MonoManager ReloadAssembly
+Platform assembly: C:\Desenv\LastBlood\Last-Blood\buildWindows_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Desenv\LastBlood\Last-Blood\buildWindows_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Desenv\LastBlood\Last-Blood\buildWindows_Data\Managed\Assembly-CSharp-firstpass.dll (this message is harmless)
+Loading C:\Desenv\LastBlood\Last-Blood\buildWindows_Data\Managed\Assembly-CSharp-firstpass.dll into Unity Child Domain
+Platform assembly: C:\Desenv\LastBlood\Last-Blood\buildWindows_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\Desenv\LastBlood\Last-Blood\buildWindows_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: C:\Desenv\LastBlood\Last-Blood\buildWindows_Data\Managed\SmoothMoves_Runtime.dll (this message is harmless)
+Loading C:\Desenv\LastBlood\Last-Blood\buildWindows_Data\Managed\SmoothMoves_Runtime.dll into Unity Child Domain
+- Completed reload, in  0.121 seconds
+desktop: 1366x768 60Hz; virtual: 1366x768 at 0,0
+<RI> Initializing input.
+<RI> Input initialized.
+Platform assembly: C:\Desenv\LastBlood\Last-Blood\buildWindows_Data\Managed\System.Core.dll (this message is harmless)
+The class defined in the script file named 'BaseAttack' is not derived from MonoBehaviour or ScriptableObject!
+ 
+(Filename:  Line: 1568)
+
+GameController
+ 
+(Filename: C:/BuildAgent/work/cac08d8a5e25d4cb/Runtime/ExportGenerated/StandalonePlayer/UnityEngineDebug.cpp Line: 54)
+
+UnityException: Index out of bounds.
+  at (wrapper managed-to-native) UnityEngine.Input:GetTouch (int)
+  at Joystick.ResetInputPosition () [0x00000] in <filename unknown>:0 
+  at Joystick.StartTouch () [0x00000] in <filename unknown>:0 
+  at JoystickBaseReceiver.OnPress () [0x00000] in <filename unknown>:0 
+UnityEngine.GameObject:SendMessage(String, Object, SendMessageOptions)
+UICamera:Notify(GameObject, String, Object)
+UICamera:ProcessTouch(Boolean, Boolean)
+UICamera:ProcessMouse()
+UICamera:Update()
+ 
+(Filename:  Line: -1)
+
+UnityException: Index out of bounds.
+  at (wrapper managed-to-native) UnityEngine.Input:GetTouch (int)
+  at Joystick.ResetInputPosition () [0x00000] in <filename unknown>:0 
+  at Joystick.StartTouch () [0x00000] in <filename unknown>:0 
+  at JoystickBaseReceiver.OnPress () [0x00000] in <filename unknown>:0 
+UnityEngine.GameObject:SendMessage(String, Object, SendMessageOptions)
+UICamera:Notify(GameObject, String, Object)
+UICamera:ProcessTouch(Boolean, Boolean)
+UICamera:ProcessMouse()
+UICamera:Update()
+ 
+(Filename:  Line: -1)
+
+UnityException: Index out of bounds.
+  at (wrapper managed-to-native) UnityEngine.Input:GetTouch (int)
+  at Joystick.ResetInputPosition () [0x00000] in <filename unknown>:0 
+  at Joystick.StartTouch () [0x00000] in <filename unknown>:0 
+  at JoystickBaseReceiver.OnPress () [0x00000] in <filename unknown>:0 
+UnityEngine.GameObject:SendMessage(String, Object, SendMessageOptions)
+UICamera:Notify(GameObject, String, Object)
+UICamera:ProcessTouch(Boolean, Boolean)
+UICamera:ProcessMouse()
+UICamera:Update()
+ 
+(Filename:  Line: -1)
+
+UnityException: Index out of bounds.
+  at (wrapper managed-to-native) UnityEngine.Input:GetTouch (int)
+  at Joystick.ResetInputPosition () [0x00000] in <filename unknown>:0 
+  at Joystick.StartTouch () [0x00000] in <filename unknown>:0 
+  at JoystickBaseReceiver.OnPress () [0x00000] in <filename unknown>:0 
+UnityEngine.GameObject:SendMessage(String, Object, SendMessageOptions)
+UICamera:Notify(GameObject, String, Object)
+UICamera:ProcessTouch(Boolean, Boolean)
+UICamera:ProcessMouse()
+UICamera:Update()
+ 
+(Filename:  Line: -1)
+
+UnityException: Index out of bounds.
+  at (wrapper managed-to-native) UnityEngine.Input:GetTouch (int)
+  at Joystick.ResetInputPosition () [0x00000] in <filename unknown>:0 
+  at Joystick.StartTouch () [0x00000] in <filename unknown>:0 
+  at JoystickBaseReceiver.OnPress () [0x00000] in <filename unknown>:0 
+UnityEngine.GameObject:SendMessage(String, Object, SendMessageOptions)
+UICamera:Notify(GameObject, String, Object)
+UICamera:ProcessTouch(Boolean, Boolean)
+UICamera:ProcessMouse()
+UICamera:Update()
+ 
+(Filename:  Line: -1)
+
+UnityException: Index out of bounds.
+  at (wrapper managed-to-native) UnityEngine.Input:GetTouch (int)
+  at Joystick.ResetInputPosition () [0x00000] in <filename unknown>:0 
+  at Joystick.StartTouch () [0x00000] in <filename unknown>:0 
+  at JoystickBaseReceiver.OnPress () [0x00000] in <filename unknown>:0 
+UnityEngine.GameObject:SendMessage(String, Object, SendMessageOptions)
+UICamera:Notify(GameObject, String, Object)
+UICamera:ProcessTouch(Boolean, Boolean)
+UICamera:ProcessMouse()
+UICamera:Update()
+ 
+(Filename:  Line: -1)
+
+UnityException: Index out of bounds.
+  at (wrapper managed-to-native) UnityEngine.Input:GetTouch (int)
+  at Joystick.ResetInputPosition () [0x00000] in <filename unknown>:0 
+  at Joystick.StartTouch () [0x00000] in <filename unknown>:0 
+  at JoystickBaseReceiver.OnPress () [0x00000] in <filename unknown>:0 
+UnityEngine.GameObject:SendMessage(String, Object, SendMessageOptions)
+UICamera:Notify(GameObject, String, Object)
+UICamera:ProcessTouch(Boolean, Boolean)
+UICamera:ProcessMouse()
+UICamera:Update()
+ 
+(Filename:  Line: -1)
+
+UnityException: Index out of bounds.
+  at (wrapper managed-to-native) UnityEngine.Input:GetTouch (int)
+  at Joystick.ResetInputPosition () [0x00000] in <filename unknown>:0 
+  at Joystick.StartTouch () [0x00000] in <filename unknown>:0 
+  at JoystickBaseReceiver.OnPress () [0x00000] in <filename unknown>:0 
+UnityEngine.GameObject:SendMessage(String, Object, SendMessageOptions)
+UICamera:Notify(GameObject, String, Object)
+UICamera:ProcessTouch(Boolean, Boolean)
+UICamera:ProcessMouse()
+UICamera:Update()
+ 
+(Filename:  Line: -1)
+
+UnityException: Index out of bounds.
+  at (wrapper managed-to-native) UnityEngine.Input:GetTouch (int)
+  at Joystick.ResetInputPosition () [0x00000] in <filename unknown>:0 
+  at Joystick.StartTouch () [0x00000] in <filename unknown>:0 
+  at JoystickBaseReceiver.OnPress () [0x00000] in <filename unknown>:0 
+UnityEngine.GameObject:SendMessage(String, Object, SendMessageOptions)
+UICamera:Notify(GameObject, String, Object)
+UICamera:ProcessTouch(Boolean, Boolean)
+UICamera:ProcessMouse()
+UICamera:Update()
+ 
+(Filename:  Line: -1)
+
+UnityException: Index out of bounds.
+  at (wrapper managed-to-native) UnityEngine.Input:GetTouch (int)
+  at Joystick.ResetInputPosition () [0x00000] in <filename unknown>:0 
+  at Joystick.StartTouch () [0x00000] in <filename unknown>:0 
+  at JoystickBaseReceiver.OnPress () [0x00000] in <filename unknown>:0 
+UnityEngine.GameObject:SendMessage(String, Object, SendMessageOptions)
+UICamera:Notify(GameObject, String, Object)
+UICamera:ProcessTouch(Boolean, Boolean)
+UICamera:ProcessMouse()
+UICamera:Update()
+ 
+(Filename:  Line: -1)
+

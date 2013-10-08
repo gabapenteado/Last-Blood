@@ -85,13 +85,15 @@ public class Character : MonoBehaviour {
 	
 	public void TakeDamage(int pDamage, bool pKnockBack)
 	{
+		
+		
 		health-=pDamage;
 		
 		DamageFeedback _feedback = Instantiate(GameGUI.instance.damageFeedback,transform.position+Vector3.up*60,Quaternion.identity) as DamageFeedback;
 		
 		_feedback.Init(pDamage, isEnemy,transform);
-		
-		if (health <= 0)
+			
+		if (health <= 0 && state != STATE.Dead)
 		{
 			Kill ();
 		}		

@@ -99,5 +99,6 @@ public class NPC : Character {
 	public override void Kill()
 	{			
 		state = STATE.Dying;
+		this.transform.position = new Vector3(this.transform.position.x, this.transform.position.y, 989);
 	}
 }

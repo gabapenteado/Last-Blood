@@ -15,9 +15,9 @@ public class ZombieSpawner : Spawner
 	
 	void Awake ()
 	{
-		goldSpeed = 0.5f;
+		goldSpeed = 0.3f;
 		goldSpeedAcc = 0.1f;
-		originalSpawnTime = 5f;
+		originalSpawnTime = 3f;
 		currentSpawnTime = originalSpawnTime;		
 	}
 

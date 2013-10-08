@@ -98,13 +98,17 @@ public class Rage : Character {
 		{
 			Collider[] enemies = Physics.OverlapSphere(transform.position, 30f);
 			int i = 0;
-			while(i < (enemies.Length - 1))
+			while(i < (enemies.Length))
 			{			
-				if((transform.position.y - enemies[i].transform.position.y) < 5f)
+				if((transform.position.y - enemies[i].transform.position.y) < 7f || (enemies[i].transform.position.y - transform.position.y) < 7f)
 				{
-					Enemy enemy = enemies[i].GetComponent<Enemy>();					
-					enemy.TakeDamage((int)skills[0].CalculateDamage(skillStrength), false);					
-					Debug.Log("Do Dmg on " + enemies[i].name);
+					if (enemies[i].name != "Rage")
+					{
+						Enemy enemy = enemies[i].GetComponent<Enemy>();
+						
+						enemy.TakeDamage((int)skills[0].CalculateDamage(skillStrength), false);					
+						Debug.Log("Do Dmg on " + enemies[i].name);
+					}
 				}
 				i++;
 			}
