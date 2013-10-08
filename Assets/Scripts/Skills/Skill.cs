@@ -17,6 +17,7 @@ public class Skill {
 	public void Init(Character pCharacter)
 	{
 		myCharacter = pCharacter;
+		//lastTimeUsed = Time.time;
 	}
 	
 	public float CalculateDamage(float pStrength)
@@ -35,7 +36,7 @@ public class Skill {
 		return 0;
 	}
 	
-	public void Use()
+	public void Use(Transform _transform)
 	{
 		lastTimeUsed = Time.time;
 		myCharacter.state = STATE.Attacking;

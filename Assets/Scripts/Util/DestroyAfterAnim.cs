@@ -7,7 +7,8 @@ public class DestroyAfterAnim : MonoBehaviour
 	tk2dSpriteAnimationClip clip;
 	
 	float destroyTime = 0.3f;
-	
+	public bool willDie = false;
+	public bool played = false;
 	// Use this for initialization
 	void Start () 
 	{
@@ -19,7 +20,7 @@ public class DestroyAfterAnim : MonoBehaviour
 	}
 	void LateUpdate()
 	{		
-		if(!animator.IsPlaying(clip))
+		if(!animator.IsPlaying(clip) && willDie && played)
 		{
 			StartCoroutine("Destroy");
 		}
