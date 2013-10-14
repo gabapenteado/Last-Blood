@@ -42,16 +42,19 @@ public class NPC : Character {
 			//Debug.Log("verificando o cooldown: " + skill.cooldown + " : " + skill.lastTimeUsed);
 			if ((skill.cooldown + skill.lastTimeUsed)<Time.time)
 			{
-				//Debug.Log("chamando a skill");
-				UseSkill(skill);
-//				baseAttackIns.animation.Play();
-				GetEffect();
-				StartCoroutine(StartEfect());
-				
-				
-				if (this.transform.position.x > target.transform.position.x)
+				if (Rage.instance.health > 0 && Fortress.instance.health > 0)
 				{
-					baseAttackIns.transform.rotation = new Quaternion(0,180,0,0);
+					//Debug.Log("chamando a skill");
+					UseSkill(skill);
+	//				baseAttackIns.animation.Play();
+					GetEffect();
+					StartCoroutine(StartEfect());
+					
+					
+					if (this.transform.position.x > target.transform.position.x)
+					{
+						baseAttackIns.transform.rotation = new Quaternion(0,180,0,0);
+					}
 				}
 			}
 		}

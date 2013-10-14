@@ -18,7 +18,10 @@ public class AI {
 		Character closer = null;
 		float distCloser = 0;
 		float distNext;
-		
+		if ((Character)GameController.instance().activeAllies[0] == null)
+		{
+			GameController.instance().Init();
+		}
 		for (int i=0; i<GameController.instance().activeAllies.Count;i++)
 		{
 			

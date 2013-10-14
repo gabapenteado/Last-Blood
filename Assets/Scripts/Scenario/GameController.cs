@@ -28,11 +28,13 @@ public class GameController {
 		return _instance;
 	}
 	
-	private void Init()
+	public void Init()
 	{
+		Debug.Log("Iniciando game controller");
 		_instance.activeAllies = new ArrayList();
 		_instance.activeAllies.Add(Rage.instance);
 		_instance.activeAllies.Add(Fortress.instance);
+		Time.timeScale = 1;
 	}
 	
 	// Use this for initialization
